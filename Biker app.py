@@ -11,7 +11,7 @@ lbl.grid()
 lbl1 = Label(root, text= "Persoonsgegevens")
 lbl1.grid(row= 2, column= 0)
 lbl2 = Label(root, text= "Voornaam")
-lbl2.grid(row=2, column=1)
+lbl2.grid(row=3, column=0)
 txt = Entry(root, width= 15)
 txt.grid(row= 3, column=1)
 
