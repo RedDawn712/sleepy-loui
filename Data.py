@@ -2,8 +2,6 @@ import re
 from tkinter import messagebox
 import tkinter as tk
 
-
-
 #Button click function
 def button_clicked(txt_voornaam, txt_achternaam, txt_adres,
                    txt_postcode, txt_email, txt_telefoonnr):
