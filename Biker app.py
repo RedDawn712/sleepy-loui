@@ -11,8 +11,8 @@ root = Tk()
 root.title("Fietsreservering bij Biker")
 root.geometry('1024x768')
 
-lbl = Label(root, text= "Bij Biker kom je vooruit.")
-lbl.grid()
+lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
+lblslogan.grid()
 persoonsgegevens= Data.Persoonsgegevens("",'" ', "", "" )
 
 #Variabelen Entry-velden
@@ -21,35 +21,38 @@ txt_achternaam = None
 txt_adres= None
 txt_postcode= None
 txt_email= None
+txt_telefoonnr= None
 
 
 #Persoonsgegevens invullen
 def persoonsgegevens():
-    global txt_voornaam, txt_achternaam, txt_adres, txt_postcode, txt_email
+    global txt_voornaam, txt_achternaam, txt_adres, txt_postcode, txt_email, txt_telefoonnr
 
-    lbl1 = Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
+    lblpersoonsgegevens = Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
 
-    lbl2 = Label(root, text= "Voornaam").grid(row=3, column=0)
+    lblvoornaam = Label(root, text= "Voornaam").grid(row=3, column=0)
     txt_voornaam = Entry(root, width= 15)
     txt_voornaam.grid(row= 3, column=1)
 
-    lbl3 = Label(root, text= "Achternaam").grid(row=4, column=0)
+    lblachternaam = Label(root, text= "Achternaam").grid(row=4, column=0)
     txt_achternaam = Entry(root, width= 15)
     txt_achternaam.grid(row= 4, column=1)
 
-    lbl4 = Label(root, text= "Adres").grid(row=5, column=0)
+    lbladres = Label(root, text= "Adres").grid(row=5, column=0)
     txt_adres = Entry(root, width= 15)
     txt_adres.grid(row= 5, column=1)
 
-    lbl5 = Label(root, text= "Postcode").grid(row=6, column=0)
+    lblpostcode = Label(root, text= "Postcode").grid(row=6, column=0)
     txt_postcode = Entry(root, width= 15)
     txt_postcode.grid(row= 6, column=1)
 
-    lbl6 = Label(root, text="E-mail adres").grid(row=7, column=0)
+    lblemail = Label(root, text="E-mail adres").grid(row=7, column=0)
     txt_email = Entry(root, width=15)
     txt_email.grid(row=7, column=1)
 
-
+    lbltelefoonnr = Label(root, text="Telefoon nummer").grid(row=8, column=0)
+    txt_telefoonnr = Entry(root, width=15)
+    txt_telefoonnr.grid(row=8, column=1)
 
 
 def button_clicked():
@@ -57,8 +60,9 @@ def button_clicked():
     not txt_achternaam.get().strip() or
     not txt_adres.get().strip() or
     not txt_postcode.get().strip() or
-    not txt_email.get().strip()):
-        messagebox.showerror(title= "Ontbrekende gegevens", message= "Vul allen velden in")
+    not txt_email.get().strip() or
+    not txt_telefoonnr.get().strip()):
+        messagebox.showerror(title= "Ontbrekende gegevens", message= "Vul alle velden in")
     else:
         messagebox.showinfo(title= "Succes!", message= "Reservering verstuurd!")
 
