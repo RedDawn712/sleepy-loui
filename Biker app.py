@@ -1,9 +1,3 @@
-import tkinter.messagebox
-from tkinter import *
-from tkinter import ttk
-from tkinter import messagebox
-import tkinter as tk
-import Data
 from Data import *
 
 root = Tk()
@@ -31,8 +25,10 @@ txt_adres = Entry(root, width= 15)
 txt_adres.grid(row= 5, column=1)
 
 lblpostcode = Label(root, text= "Postcode").grid(row=6, column=0)
-txt_postcode = Entry(root, width= 15, validate = "key", validatecommand= (root.register(validate_postcode), "%S", "%P"))
-txt_postcode.grid(row= 6, column=1)
+vcmd = (root.register(validate_postcode), '%P')
+txt_postcode = tk.Entry(root, width=15, validate='key', validatecommand=vcmd)
+txt_postcode.grid(row=6, column=1)
+
 
 lblemail = Label(root, text="E-mail adres").grid(row=7, column=0)
 txt_email = Entry(root, width=15)

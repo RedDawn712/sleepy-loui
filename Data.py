@@ -1,3 +1,5 @@
+from operator import truediv
+import re
 import ttkbootstrap
 import tkinter.messagebox
 from tkinter import *
@@ -27,10 +29,19 @@ def button_clicked():
         messagebox.showinfo(title= "Succes!", message= "Reservering verstuurd!")
 
 #Maximum len postcode
-def validate_postcode(text, new_text):
-    if len(new_text) >6:
-        return False
-    return text.isdecimal()
+postcode_re=re.compile(r'^(?:\d{0,4}|\d{4}[A-Z]{0,2})$')
+
+def validate_postcode(text):
+    text = text.upper()
+    if postcode_re.match(text):
+        try:
+            txt_postcode.delete(0, tk.END)
+            txt_postcode.insert(0, text)
+            txt_postcode.icursor(len(text))
+        except Exception:
+            pass
+        return True
+    return False
 
 def persoonsgegevens():
     global txt_voornaam, txt_achternaam, txt_adres, txt_postcode, txt_email, txt_telefoonnr
