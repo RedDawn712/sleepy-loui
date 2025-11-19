@@ -13,58 +13,34 @@ root.geometry('1024x768')
 
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
 lblslogan.grid()
-persoonsgegevens= Data.Persoonsgegevens("",'" ', "", "" )
-
-#Variabelen Entry-velden
-txt_voornaam= None
-txt_achternaam = None
-txt_adres= None
-txt_postcode= None
-txt_email= None
-txt_telefoonnr= None
 
 
 #Persoonsgegevens invullen
-def persoonsgegevens():
-    global txt_voornaam, txt_achternaam, txt_adres, txt_postcode, txt_email, txt_telefoonnr
+lblpersoonsgegevens = Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
 
-    lblpersoonsgegevens = Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
+lblvoornaam = Label(root, text= "Voornaam").grid(row=3, column=0)
+txt_voornaam = Entry(root, width= 15)
+txt_voornaam.grid(row= 3, column=1)
 
-    lblvoornaam = Label(root, text= "Voornaam").grid(row=3, column=0)
-    txt_voornaam = Entry(root, width= 15)
-    txt_voornaam.grid(row= 3, column=1)
+lblachternaam = Label(root, text= "Achternaam").grid(row=4, column=0)
+txt_achternaam = Entry(root, width= 15)
+txt_achternaam.grid(row= 4, column=1)
 
-    lblachternaam = Label(root, text= "Achternaam").grid(row=4, column=0)
-    txt_achternaam = Entry(root, width= 15)
-    txt_achternaam.grid(row= 4, column=1)
+lbladres = Label(root, text= "Adres").grid(row=5, column=0)
+txt_adres = Entry(root, width= 15)
+txt_adres.grid(row= 5, column=1)
 
-    lbladres = Label(root, text= "Adres").grid(row=5, column=0)
-    txt_adres = Entry(root, width= 15)
-    txt_adres.grid(row= 5, column=1)
+lblpostcode = Label(root, text= "Postcode").grid(row=6, column=0)
+txt_postcode = Entry(root, width= 15, validate = "key", validatecommand= (root.register(validate_postcode), "%S", "%P"))
+txt_postcode.grid(row= 6, column=1)
 
-    lblpostcode = Label(root, text= "Postcode").grid(row=6, column=0)
-    txt_postcode = Entry(root, width= 15)
-    txt_postcode.grid(row= 6, column=1)
+lblemail = Label(root, text="E-mail adres").grid(row=7, column=0)
+txt_email = Entry(root, width=15)
+txt_email.grid(row=7, column=1)
 
-    lblemail = Label(root, text="E-mail adres").grid(row=7, column=0)
-    txt_email = Entry(root, width=15)
-    txt_email.grid(row=7, column=1)
-
-    lbltelefoonnr = Label(root, text="Telefoon nummer").grid(row=8, column=0)
-    txt_telefoonnr = Entry(root, width=15)
-    txt_telefoonnr.grid(row=8, column=1)
-
-
-def button_clicked():
-    if(not txt_voornaam.get().strip() or
-    not txt_achternaam.get().strip() or
-    not txt_adres.get().strip() or
-    not txt_postcode.get().strip() or
-    not txt_email.get().strip() or
-    not txt_telefoonnr.get().strip()):
-        messagebox.showerror(title= "Ontbrekende gegevens", message= "Vul alle velden in")
-    else:
-        messagebox.showinfo(title= "Succes!", message= "Reservering verstuurd!")
+lbltelefoonnr = Label(root, text="Telefoon nummer").grid(row=8, column=0)
+txt_telefoonnr = Entry(root, width=15)
+txt_telefoonnr.grid(row=8, column=1)
 
 Button = Button(root,
                 text="Reservering versturen",
