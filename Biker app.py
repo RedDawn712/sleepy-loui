@@ -2,6 +2,7 @@ from Data import *
 
 root = Tk()
 
+#Window Title
 root.title("Fietsreservering bij Biker")
 root.geometry('1024x768')
 
@@ -38,9 +39,11 @@ lbltelefoonnr = Label(root, text="Telefoon nummer").grid(row=8, column=0)
 txt_telefoonnr = Entry(root, width=15)
 txt_telefoonnr.grid(row=8, column=1)
 
+
+#Button reservering verzenden
 Button = Button(root,
                 text="Reservering versturen",
-                command=button_clicked)
+                command=button_clicked, bg = 'light green')
 Button.grid(row=15, column=15)
 
 persoonsgegevens()
