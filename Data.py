@@ -26,3 +26,4 @@ def validate_postcode(text):
     if not postcode_re.match(text):
         return False
     return True
+

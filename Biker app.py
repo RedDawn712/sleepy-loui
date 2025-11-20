@@ -2,17 +2,20 @@ from Data import *
 from tkinter import *
 import tkinter as tk
 from tkinter.ttk import *
+
 #Main window
 root = Tk()
 root.title("Fietsreservering bij Biker")
 root.geometry('1024x768')
-
-#Reservation window
-
-
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
 lblslogan.grid()
 
+#Opening new window
+def open_new_window():
+    reservation_window = Toplevel(root)
+    reservation_window.title("Fiets Reserveren")
+    reservation_window.geometry('1024x768')
+    Label(reservation_window, text= "Hier kan je reserveren").pack(pady=20)
 
 #Entry velden
 Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
@@ -39,11 +42,12 @@ Label(root, text="E-mail adres").grid(row=7, column=0)
 txt_email = Entry(root, width=20)
 txt_email.grid(row=7, column=1)
 
-lbltelefoonnr = Label(root, text="Telefoon nummer").grid(row=8, column=0)
+Label(root, text="Telefoon nummer").grid(row=8, column=0)
 txt_telefoonnr = Entry(root, width=20)
 txt_telefoonnr.grid(row=8, column=1)
 
 #New page button
+Button(root, text= "Fiets reserveren", command= open_new_window).grid()
 
 #Button reservering verzenden
 Button = Button(root,
