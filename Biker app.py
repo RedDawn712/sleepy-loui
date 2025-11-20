@@ -1,10 +1,14 @@
 from Data import *
 from tkinter import *
 import tkinter as tk
-
+from tkinter.ttk import *
+#Main window
 root = Tk()
 root.title("Fietsreservering bij Biker")
 root.geometry('1024x768')
+
+#Reservation window
+
 
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
 lblslogan.grid()
@@ -39,6 +43,7 @@ lbltelefoonnr = Label(root, text="Telefoon nummer").grid(row=8, column=0)
 txt_telefoonnr = Entry(root, width=20)
 txt_telefoonnr.grid(row=8, column=1)
 
+#New page button
 
 #Button reservering verzenden
 Button = Button(root,
