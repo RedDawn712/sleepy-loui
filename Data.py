@@ -24,5 +24,4 @@ def validate_postcode(text):
     text = text.upper()
     if not postcode_re.match(text):
         return False
-
     return True
