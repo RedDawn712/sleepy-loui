@@ -3,19 +3,18 @@ from tkinter import messagebox
 
 
 #Button click function
-def button_clicked(txt_first_name, txt_last_name, txt_address,
-                   txt_zipcode, txt_email, txt_mobilenr):
-    if (not txt_first_name.get().strip()
-            or not txt_last_name.get().strip()
-            or not txt_address.get().strip()
-            or not txt_zipcode.get().strip()
-            or not txt_email.get().strip()
-            or not txt_mobilenr.get().strip()):
+def button_clicked(txt_first_name1, txt_last_name1, txt_address1,
+                   txt_zipcode1, txt_email1, txt_mobilenr1):
+    if (not txt_first_name1.get().strip()
+            or not txt_last_name1.get().strip()
+            or not txt_address1.get().strip()
+            or not txt_zipcode1.get().strip()
+            or not txt_email1.get().strip()
+            or not txt_mobilenr1.get().strip()):
 
         messagebox.showerror(title="Ontbrekende gegevens", message="Vul alle velden in")
     else:
         messagebox.showinfo(title="Succes!", message="Reservering verstuurd!")
-
 
 #Maximum length zipcode
 zipcode_re = re.compile(r'^(?:\d{0,4}|\d{4}[A-Z]{0,2})$')

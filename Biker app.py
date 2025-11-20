@@ -3,15 +3,19 @@ from tkinter import *
 import tkinter as tk
 from tkinter.ttk import *
 
-#Login window
+#Start window
 root = Tk()
-root.title("Fietsreservering bij Biker")
-root.geometry('1024x768')
+root.title("Biker fietsverhuur")
+root.geometry('1200x800')
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
-lblslogan.grid()
+root.columnconfigure(0, weight=1)
+root.columnconfigure(1, weight=1)
+root.columnconfigure(2, weight=1)
+lblslogan.grid(row=0, column=1)
 
 
-#Entry field reservation
+
+#Start window Top
 Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
 
 Label(root, text= "Voornaam").grid(row=3, column=0)
@@ -77,18 +81,15 @@ def open_new_window():
     # Button send reservation
     send_button =Button(reservation_window,
                     text="Reservering versturen",
-                    command=lambda: button_clicked(txt_first_name,
-                                                   txt_last_name,
-                                                   txt_address,
-                                                   txt_zipcode,
-                                                   txt_email,
-                                                   txt_mobilenr))
+                    command=lambda: button_clicked(txt_first_name1,
+                                                   txt_last_name1,
+                                                   txt_address1,
+                                                   txt_zipcode1,
+                                                   txt_email1,
+                                                   txt_mobilenr1))
     send_button.grid(row=15, column=15)
 
 #New page button
 Button(root, text= "Fiets reserveren", command= open_new_window).grid()
-
-
-
 
 root.mainloop()
