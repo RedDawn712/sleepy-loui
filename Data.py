@@ -1,7 +1,6 @@
 import re
 from tkinter import messagebox
 
-
 #Button click function
 def button_clicked(txt_first_name1, txt_last_name1, txt_address1,
                    txt_zipcode1, txt_email1, txt_mobilenr1):
@@ -13,6 +12,7 @@ def button_clicked(txt_first_name1, txt_last_name1, txt_address1,
             or not txt_mobilenr1.get().strip()):
 
         messagebox.showerror(title="Ontbrekende gegevens", message="Vul alle velden in")
+
     else:
         messagebox.showinfo(title="Succes!", message="Reservering verstuurd!")
 
