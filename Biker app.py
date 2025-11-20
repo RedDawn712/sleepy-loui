@@ -3,56 +3,92 @@ from tkinter import *
 import tkinter as tk
 from tkinter.ttk import *
 
-#Main window
+#Login window
 root = Tk()
 root.title("Fietsreservering bij Biker")
 root.geometry('1024x768')
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
 lblslogan.grid()
 
-#Opening new window
-def open_new_window():
-    reservation_window = Toplevel(root)
-    reservation_window.title("Fiets Reserveren")
-    reservation_window.geometry('1024x768')
-    Label(reservation_window, text= "Hier kan je reserveren").pack(pady=20)
 
-#Entry velden
+#Entry field reservation
 Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
 
 Label(root, text= "Voornaam").grid(row=3, column=0)
-txt_voornaam = Entry(root, width= 20)
-txt_voornaam.grid(row= 3, column=1)
+txt_first_name = Entry(root, width= 20)
+txt_first_name.grid(row= 3, column=1)
 
 Label(root, text= "Achternaam").grid(row=4, column=0)
-txt_achternaam = Entry(root, width= 20)
-txt_achternaam.grid(row= 4, column=1)
+txt_last_name = Entry(root, width= 20)
+txt_last_name.grid(row= 4, column=1)
 
 Label(root, text= "Adres").grid(row=5, column=0)
-txt_adres = Entry(root, width= 20)
-txt_adres.grid(row= 5, column=1)
+txt_address = Entry(root, width= 20)
+txt_address.grid(row= 5, column=1)
 
 Label(root, text= "Postcode").grid(row=6, column=0)
-vcmd = (root.register(validate_postcode), '%P')
-txt_postcode = tk.Entry(root, width=20, validate='key', validatecommand=vcmd)
-txt_postcode.grid(row=6, column=1)
-
+vcmd = (root.register(validate_zipcode), '%P')
+txt_zipcode = tk.Entry(root, width=20, validate='key', validatecommand=vcmd)
+txt_zipcode.grid(row=6, column=1)
 
 Label(root, text="E-mail adres").grid(row=7, column=0)
 txt_email = Entry(root, width=20)
 txt_email.grid(row=7, column=1)
 
 Label(root, text="Telefoon nummer").grid(row=8, column=0)
-txt_telefoonnr = Entry(root, width=20)
-txt_telefoonnr.grid(row=8, column=1)
+txt_mobilenr = Entry(root, width=20)
+txt_mobilenr.grid(row=8, column=1)
+
+#Reservation window
+def open_new_window():
+    reservation_window = Toplevel(root)
+    reservation_window.title("Fiets Reserveren")
+    reservation_window.geometry('1024x768')
+    Label(reservation_window, text= "Hier kan je reserveren").grid()
+
+    # Entry field reservation
+    Label(reservation_window, text="Persoonsgegevens").grid(row=2, column=0)
+
+    Label(reservation_window, text="Voornaam").grid(row=3, column=0)
+    txt_first_name1 = Entry(reservation_window, width=20)
+    txt_first_name1.grid(row=3, column=1)
+
+    Label(reservation_window, text="Achternaam").grid(row=4, column=0)
+    txt_last_name1 = Entry(reservation_window, width=20)
+    txt_last_name1.grid(row=4, column=1)
+
+    Label(reservation_window, text="Adres").grid(row=5, column=0)
+    txt_address1 = Entry(reservation_window, width=20)
+    txt_address1.grid(row=5, column=1)
+
+    Label(reservation_window, text="Postcode").grid(row=6, column=0)
+    vcmd1 = (reservation_window.register(validate_zipcode), '%P')
+    txt_zipcode1 = tk.Entry(reservation_window, width=20, validate='key', validatecommand=vcmd1)
+    txt_zipcode1.grid(row=6, column=1)
+
+    Label(reservation_window, text="E-mail adres").grid(row=7, column=0)
+    txt_email1 = Entry(reservation_window, width=20)
+    txt_email1.grid(row=7, column=1)
+
+    Label(reservation_window, text="Telefoon nummer").grid(row=8, column=0)
+    txt_mobilenr1 = Entry(reservation_window, width=20)
+    txt_mobilenr1.grid(row=8, column=1)
+
+    # Button send reservation
+    send_button =Button(reservation_window,
+                    text="Reservering versturen",
+                    command=lambda: button_clicked(txt_first_name,
+                                                   txt_last_name,
+                                                   txt_address,
+                                                   txt_zipcode,
+                                                   txt_email,
+                                                   txt_mobilenr))
+    send_button.grid(row=15, column=15)
 
 #New page button
 Button(root, text= "Fiets reserveren", command= open_new_window).grid()
 
-#Button reservering verzenden
-Button = Button(root,
-                text="Reservering versturen",
-                command= lambda: button_clicked(txt_voornaam, txt_achternaam, txt_adres, txt_postcode, txt_email, txt_telefoonnr))
-Button.grid(row=15, column=15)
+
+
 
 root.mainloop()

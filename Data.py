@@ -1,29 +1,28 @@
 import re
 from tkinter import messagebox
-from tkinter import *
-from tkinter.ttk import *
+
 
 #Button click function
-def button_clicked(txt_voornaam, txt_achternaam, txt_adres,
-                   txt_postcode, txt_email, txt_telefoonnr):
-    if (not txt_voornaam.get().strip()
-            or not txt_achternaam.get().strip()
-            or not txt_adres.get().strip()
-            or not txt_postcode.get().strip()
+def button_clicked(txt_first_name, txt_last_name, txt_address,
+                   txt_zipcode, txt_email, txt_mobilenr):
+    if (not txt_first_name.get().strip()
+            or not txt_last_name.get().strip()
+            or not txt_address.get().strip()
+            or not txt_zipcode.get().strip()
             or not txt_email.get().strip()
-            or not txt_telefoonnr.get().strip()):
+            or not txt_mobilenr.get().strip()):
 
         messagebox.showerror(title="Ontbrekende gegevens", message="Vul alle velden in")
     else:
         messagebox.showinfo(title="Succes!", message="Reservering verstuurd!")
 
 
-#Maximum len postcode
-postcode_re = re.compile(r'^(?:\d{0,4}|\d{4}[A-Z]{0,2})$')
+#Maximum length zipcode
+zipcode_re = re.compile(r'^(?:\d{0,4}|\d{4}[A-Z]{0,2})$')
 
-def validate_postcode(text):
+def validate_zipcode(text):
     text = text.upper()
-    if not postcode_re.match(text):
+    if not zipcode_re.match(text):
         return False
     return True
 
