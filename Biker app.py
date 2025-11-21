@@ -6,7 +6,7 @@ from tkinter.ttk import *
 #Start window
 root = Tk()
 root.title("Biker fietsverhuur")
-root.geometry('1200x800')
+root.geometry('500x500')
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
@@ -14,8 +14,8 @@ root.columnconfigure(2, weight=1)
 lblslogan.grid(row=0, column=1)
 
 
-
 #Start window Top
+
 Label(root, text= "Beschikbare fietsen").grid(row= 2, column= 0)
 
 Label(root, text= "Damesfietsen").grid(row=3, column=0)
@@ -89,6 +89,7 @@ def open_new_window():
 Button(root, text= "Fiets reserveren", command= open_new_window).grid()
 
 #Worker inlogpage button
-Button(root, text=("Medewerker inloggen")).grid(row=100, column=800)
+Button(root, text="Medewerker inloggen").place(rely=1.0, relx=1.0, x=0, y=0, anchor="se")
+
 
 root.mainloop()
