@@ -85,8 +85,10 @@ def open_new_window():
                                                    txt_mobilenr1))
     send_button.grid(row=15, column=15)
 
-#New page button
+#Reservation page button
 Button(root, text= "Fiets reserveren", command= open_new_window).grid()
 
+#Worker inlogpage button
+Button(root, text=("Medewerker inloggen")).grid(row=100, column=800)
 
 root.mainloop()
