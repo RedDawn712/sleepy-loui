@@ -16,7 +16,7 @@ lblslogan.grid(row=0, column=1)
 
 
 #Start window Top
-Label(root, text= "Persoonsgegevens").grid(row= 2, column= 0)
+Label(root, text= "Beschikbare fietsen").grid(row= 2, column= 0)
 
 Label(root, text= "Voornaam").grid(row=3, column=0)
 txt_first_name = Entry(root, width= 20)
@@ -48,6 +48,7 @@ def open_new_window():
     reservation_window = Toplevel(root)
     reservation_window.title("Fiets Reserveren")
     reservation_window.geometry('1024x768')
+    root.iconify() #After opening new window, main window minimizes
     Label(reservation_window, text= "Hier kan je reserveren").grid()
 
     # Entry field reservation
@@ -91,5 +92,6 @@ def open_new_window():
 
 #New page button
 Button(root, text= "Fiets reserveren", command= open_new_window).grid()
+
 
 root.mainloop()
