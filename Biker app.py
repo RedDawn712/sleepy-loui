@@ -18,30 +18,25 @@ lblslogan.grid(row=0, column=1)
 #Start window Top
 Label(root, text= "Beschikbare fietsen").grid(row= 2, column= 0)
 
-Label(root, text= "Voornaam").grid(row=3, column=0)
-txt_first_name = Entry(root, width= 20)
-txt_first_name.grid(row= 3, column=1)
+Label(root, text= "Damesfietsen").grid(row=3, column=0)
+txt_ladies_bike = Entry(root, width= 20)
+txt_ladies_bike.grid(row= 3, column=1)
 
-Label(root, text= "Achternaam").grid(row=4, column=0)
-txt_last_name = Entry(root, width= 20)
-txt_last_name.grid(row= 4, column=1)
+Label(root, text= "Herenfietsen").grid(row=4, column=0)
+txt_mens_bike = Entry(root, width= 20)
+txt_mens_bike.grid(row= 4, column=1)
 
-Label(root, text= "Adres").grid(row=5, column=0)
-txt_address = Entry(root, width= 20)
-txt_address.grid(row= 5, column=1)
+Label(root, text= "Elektrische fietsen").grid(row=5, column=0)
+txt_electric_bike = Entry(root, width= 20)
+txt_electric_bike.grid(row= 5, column=1)
 
-Label(root, text= "Postcode").grid(row=6, column=0)
-vcmd = (root.register(validate_zipcode), '%P')
-txt_zipcode = tk.Entry(root, width=20, validate='key', validatecommand=vcmd)
-txt_zipcode.grid(row=6, column=1)
+Label(root, text= "Mountainbikes").grid(row=6, column=0)
+txt_mountainbike = tk.Entry(root, width=20,)
+txt_mountainbike.grid(row=6, column=1)
 
-Label(root, text="E-mail adres").grid(row=7, column=0)
-txt_email = Entry(root, width=20)
-txt_email.grid(row=7, column=1)
-
-Label(root, text="Telefoon nummer").grid(row=8, column=0)
-txt_mobilenr = Entry(root, width=20)
-txt_mobilenr.grid(row=8, column=1)
+Label(root, text="Accessoires").grid(row=7, column=0)
+txt_accesoires = Entry(root, width=20)
+txt_accesoires.grid(row=7, column=1)
 
 #Reservation window
 def open_new_window():
