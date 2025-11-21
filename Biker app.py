@@ -4,7 +4,7 @@ import tkinter as tk
 from tkinter.ttk import *
 
 #Start window
-root = Tk()
+root = tk.Tk()
 root.title("Biker fietsverhuur")
 root.geometry('500x500')
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
@@ -15,7 +15,6 @@ lblslogan.grid(row=0, column=1)
 
 
 #Start window Top
-
 Label(root, text= "Beschikbare fietsen").grid(row= 2, column= 0)
 
 Label(root, text= "Damesfietsen").grid(row=3, column=0)
@@ -42,7 +41,7 @@ txt_accesoires.grid(row=7, column=1)
 def open_new_window():
     reservation_window = Toplevel(root)
     reservation_window.title("Fiets Reserveren")
-    reservation_window.geometry('1024x768')
+    reservation_window.geometry('500x500')
     root.iconify() #After opening new window, main window minimizes
     Label(reservation_window, text= "Hier kan je reserveren").grid()
 
@@ -88,8 +87,21 @@ def open_new_window():
 #Reservation page button
 Button(root, text= "Fiets reserveren", command= open_new_window).grid()
 
+#Worker login page
+def worker_login():
+    worker_window = Toplevel(root)
+    worker_window.title("Medewerker Inloggen")
+    worker_window.geometry('500x500')
+    root.iconify()
+    Label(worker_window, text="Gebruikersnaam").grid(row=4, column=0)
+    Label(worker_window, text="Wachtwoord").grid(row=5, column=0)
+    txt_username= Entry(worker_window, width=20)
+    txt_username.grid(row=4, column=1)
+    txt_password = Entry(worker_window, width=20)
+    txt_password.grid(row=5, column=1)
+
 #Worker inlogpage button
-Button(root, text="Medewerker inloggen").place(rely=1.0, relx=1.0, x=0, y=0, anchor="se")
+Button(root, text="Medewerker inloggen", command= worker_login).place(rely=1.0, relx=1.0, x=0, y=0, anchor="se")
 
 
 root.mainloop()
