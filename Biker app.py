@@ -16,6 +16,15 @@ root.columnconfigure(2, weight=1)
 lblslogan = Label(root, text= "Bij Biker kom je vooruit.", font=(")Arial", 14))
 lblslogan.grid(row=0, column=1)
 
+# Bottom header
+footer = Label(root,
+               text="© 2025 Biker Fietsverhuur",
+               bg="grey",
+               fg="white",
+               font=("Arial", 12))
+
+footer.place(relx=0, rely=1.0, anchor='sw', relwidth=1)
+
 #Placeholder maker
 def create_placeholder(parent, text):
     canvas= tk.Canvas(parent,
@@ -106,7 +115,9 @@ def worker_login():
     worker_window = Toplevel(root)
     worker_window.title("Medewerker Inloggen")
     worker_window.geometry('500x500')
-    root.iconify()
+    root.iconify() #Closes mainwindow
+
+    #Worker login entry fields
     Label(worker_window, text="Gebruikersnaam").grid(row=4, column=0)
     Label(worker_window, text="Wachtwoord").grid(row=5, column=0)
     txt_username= Entry(worker_window, width=20)
@@ -115,7 +126,9 @@ def worker_login():
     txt_password.grid(row=5, column=1)
 
 #Worker inlogpage button
-Button(root, text="Medewerker inloggen", command= worker_login).place(rely=1.0, relx=1.0, x=0, y=0, anchor="se")
+Button(root,
+       text="Medewerker inloggen",
+       command=worker_login).place(rely=0.95, relx=1, anchor="se")
 
 
 root.mainloop()
