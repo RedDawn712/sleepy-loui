@@ -105,7 +105,8 @@ def open_new_window():
                                                    txt_address1,
                                                    txt_zipcode1,
                                                    txt_email1,
-                                                   txt_mobilenr1))
+                                                   txt_mobilenr1,
+                                                   bike_type))
     send_button.grid(row=16, column=0, columnspan=2, pady=20)
 
 #Damesfiets placeholder

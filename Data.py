@@ -18,13 +18,14 @@ def create_placeholder(parent, text):
     return canvas
 #Button click function reservation
 def button_clicked(txt_first_name1, txt_last_name1, txt_address1,
-                   txt_zipcode1, txt_email1, txt_mobilenr1):
+                   txt_zipcode1, txt_email1, txt_mobilenr1, bike_type):
     if (not txt_first_name1.get().strip()
             or not txt_last_name1.get().strip()
             or not txt_address1.get().strip()
             or not txt_zipcode1.get().strip()
             or not txt_email1.get().strip()
-            or not txt_mobilenr1.get().strip()):
+            or not txt_mobilenr1.get().strip()
+            or not bike_type.get()):
 
         messagebox.showerror(title="Ontbrekende gegevens", message="Vul alle velden in")
 
