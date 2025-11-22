@@ -1,3 +1,5 @@
+import ttkbootstrap
+
 from Data import *
 from tkinter import *
 import tkinter as tk
@@ -81,6 +83,19 @@ def open_new_window():
     Label(reservation_window, text="Telefoon nummer").grid(row=8, column=0)
     txt_mobilenr1 = Entry(reservation_window, width=20)
     txt_mobilenr1.grid(row=8, column=1)
+
+    Label(reservation_window, text= "Kies een soort fiets").grid(row=9, column=0)
+    #Dropdownbox creation
+    n = tk.StringVar()
+    bike_type = ttkbootstrap.Combobox(reservation_window, width= 20, textvariable= n,)
+
+    #Addig bike types
+    bike_type['values'] = ('Dames fiets',
+                           'Heren fiets',
+                           'Elektrische fiets',
+                           'Mountainbike',
+                           'Kinderfiets')
+    bike_type.grid(row=9, column=1)
 
     # Button send reservation
     send_button =Button(reservation_window,
