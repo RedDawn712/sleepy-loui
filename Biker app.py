@@ -1,41 +1,31 @@
 from Data import *
 from tkinter import *
 import tkinter as tk
-from tkinter.ttk import *
 
 #Start window
 root = tk.Tk()
 root.title("Biker fietsverhuur")
 root.geometry('500x500')
-lblslogan = Label(root, text= "Bij Biker kom je vooruit.")
+
+#3 column configure
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
 root.columnconfigure(2, weight=1)
+
+#start window slogan
+lblslogan = Label(root, text= "Bij Biker kom je vooruit.", font=(")Arial", 14))
 lblslogan.grid(row=0, column=1)
 
-
-#Start window Top
-Label(root, text= "Beschikbare fietsen").grid(row= 2, column= 0)
-
-Label(root, text= "Damesfietsen").grid(row=3, column=0)
-txt_ladies_bike = Entry(root, width= 20)
-txt_ladies_bike.grid(row= 3, column=1)
-
-Label(root, text= "Herenfietsen").grid(row=4, column=0)
-txt_mens_bike = Entry(root, width= 20)
-txt_mens_bike.grid(row= 4, column=1)
-
-Label(root, text= "Elektrische fietsen").grid(row=5, column=0)
-txt_electric_bike = Entry(root, width= 20)
-txt_electric_bike.grid(row= 5, column=1)
-
-Label(root, text= "Mountainbikes").grid(row=6, column=0)
-txt_mountainbike = tk.Entry(root, width=20,)
-txt_mountainbike.grid(row=6, column=1)
-
-Label(root, text="Accessoires").grid(row=7, column=0)
-txt_accesoires = Entry(root, width=20)
-txt_accesoires.grid(row=7, column=1)
+#Placeholder maker
+def create_placeholder(parent, text):
+    canvas= tk.Canvas(parent,
+                      width=120,
+                      height=90,
+                      bg='grey',
+                      highlightthickness=1,
+                      highlightbackground='black')
+    canvas.create_text(60, 45, text=text)
+    return canvas
 
 #Reservation window
 def open_new_window():
@@ -43,11 +33,18 @@ def open_new_window():
     reservation_window.title("Fiets Reserveren")
     reservation_window.geometry('500x500')
     root.iconify() #After opening new window, main window minimizes
+
     Label(reservation_window, text= "Hier kan je reserveren").grid()
 
-    # Entry field reservation
-    Label(reservation_window, text="Persoonsgegevens").grid(row=2, column=0)
-
+    # Header text
+    Label(reservation_window,
+          text="Biker Fietsreservering",
+          bg='grey',
+          fg='white',
+          font=("Arial", 15)).place(relx=0.5, y=10., anchor= 'n')
+    Label(reservation_window, text="Persoonsgegevens").grid(row=2,
+                                                            column=0)
+    #Entry fields reservation
     Label(reservation_window, text="Voornaam").grid(row=3, column=0)
     txt_first_name1 = Entry(reservation_window, width=20)
     txt_first_name1.grid(row=3, column=1)
@@ -62,7 +59,10 @@ def open_new_window():
 
     Label(reservation_window, text="Postcode").grid(row=6, column=0)
     vcmd1 = (reservation_window.register(validate_zipcode), '%P')
-    txt_zipcode1 = tk.Entry(reservation_window, width=20, validate='key', validatecommand=vcmd1)
+    txt_zipcode1 = tk.Entry(reservation_window,
+                            width=20,
+                            validate='key',
+                            validatecommand=vcmd1)
     txt_zipcode1.grid(row=6, column=1)
 
     Label(reservation_window, text="E-mail adres").grid(row=7, column=0)
@@ -82,10 +82,24 @@ def open_new_window():
                                                    txt_zipcode1,
                                                    txt_email1,
                                                    txt_mobilenr1))
-    send_button.grid(row=15, column=15)
+    send_button.grid(row=16, column=0, columnspan=2, pady=20)
 
-#Reservation page button
-Button(root, text= "Fiets reserveren", command= open_new_window).grid()
+#Damesfiets placeholder
+ph_dames = (create_placeholder(root, "Damesfiets"))
+ph_dames.grid(row=2, column= 0, pady=15)
+Button(root, text= "Reserveer nu!", command= open_new_window).grid(row=3, column=0)
+
+#Herenfiets placeholder
+ph_heren=(create_placeholder(root, text="Herenfiets"))
+ph_heren.grid(row=2, column= 1, pady=15)
+Button(root, text= "Reserveer nu!", command= open_new_window).grid(row= 3, column= 1)
+
+#Elektrische fiets placeholder
+ph_elektrisch=(create_placeholder(root, text="Elektrische fiets"))
+ph_elektrisch.grid(row=2, column=2, pady=15)
+Button(root, text="Reserveer nu!", command= open_new_window).grid(row=3, column= 2)
+
+
 
 #Worker login page
 def worker_login():
