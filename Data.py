@@ -1,5 +1,9 @@
 import re
 from tkinter import messagebox
+import ttkbootstrap
+from tkinter.ttk import *
+from Data import *
+from tkinter import *
 import tkinter as tk
 #Main window frame
 def create_widget(parent, widget_type, **options):
@@ -16,6 +20,9 @@ def create_placeholder(parent, text):
                       highlightbackground='black')
     canvas.create_text(60, 45, text=text)
     return canvas
+
+
+
 #Button click function reservation
 def button_clicked(txt_first_name1, txt_last_name1, txt_address1,
                    txt_zipcode1, txt_email1, txt_mobilenr1, bike_type):

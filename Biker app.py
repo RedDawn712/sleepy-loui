@@ -1,8 +1,9 @@
 import ttkbootstrap
-
+from tkinter.ttk import *
 from Data import *
 from tkinter import *
 import tkinter as tk
+from Data import create_placeholder
 
 #Start window
 root = tk.Tk()
@@ -15,7 +16,7 @@ root.columnconfigure(1, weight=1)
 root.columnconfigure(2, weight=1)
 
 #start window slogan
-lblslogan = Label(root, text= "Bij Biker kom je vooruit.", font=(")Arial", 14))
+lblslogan = Label(root, text= "Met Biker kom je vooruit.", font=(")Arial", 14))
 lblslogan.grid(row=0, column=1)
 
 # Bottom header
@@ -27,17 +28,6 @@ footer = Label(root,
 
 footer.place(relx=0, rely=1.0, anchor='sw', relwidth=1)
 
-#Placeholder maker
-def create_placeholder(parent, text):
-    canvas= tk.Canvas(parent,
-                      width=120,
-                      height=90,
-                      bg='grey',
-                      highlightthickness=1,
-                      highlightbackground='black')
-    canvas.create_text(60, 45, text=text)
-    return canvas
-
 #Reservation window
 def open_new_window():
     reservation_window = Toplevel(root)
@@ -45,7 +35,7 @@ def open_new_window():
     reservation_window.geometry('500x500')
     root.iconify() #After opening new window, main window minimizes
 
-    Label(reservation_window, text= "Hier kan je reserveren").grid()
+    Label(reservation_window, text= "Vul je gegevens in").grid()
 
     # Header text
     Label(reservation_window,
@@ -85,6 +75,7 @@ def open_new_window():
     txt_mobilenr1.grid(row=8, column=1)
 
     Label(reservation_window, text= "Kies een soort fiets").grid(row=9, column=0)
+
     #Dropdownbox creation
     n = tk.StringVar()
     bike_type = ttkbootstrap.Combobox(reservation_window, width= 20, textvariable= n,)
@@ -96,6 +87,21 @@ def open_new_window():
                            'Mountainbike',
                            'Kinderfiets')
     bike_type.grid(row=9, column=1)
+
+    #Payment method creation
+    v= StringVar(reservation_window, "1")
+    values= {"iDeal": "1",
+             "Creditcard": "2",
+             "Overschrijven": "3",
+             "Paypal": "4"}
+    v.set("1")
+
+    for i, (text, value) in enumerate(values.items()):
+        Radiobutton(reservation_window,
+                    text=text,
+                    variable=v,
+                    value=value).grid(row=10 + i, column=1, sticky= "w", pady=2)
+
 
     # Button send reservation
     send_button =Button(reservation_window,
@@ -140,6 +146,9 @@ def worker_login():
     txt_username.grid(row=4, column=1)
     txt_password = Entry(worker_window, width=20)
     txt_password.grid(row=5, column=1)
+
+    #Worker login button
+    Button(worker_window, text="Login", command= open_new_window).grid(row=6, column= 1)
 
 #Worker inlogpage button
 Button(root,
