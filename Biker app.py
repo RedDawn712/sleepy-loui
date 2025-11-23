@@ -16,7 +16,7 @@ root.columnconfigure(1, weight=1)
 root.columnconfigure(2, weight=1)
 
 #start window slogan
-lblslogan = Label(root, text= "Met Biker kom je vooruit.", font=(")Arial", 14))
+lblslogan = Label(root, text= "Met Biker kom je vooruit.", font=("Arial", 14))
 lblslogan.grid(row=0, column=1)
 
 # Bottom header
@@ -113,7 +113,8 @@ def open_new_window():
                                                    txt_email1,
                                                    txt_mobilenr1,
                                                    bike_type))
-    send_button.grid(row=16, column=0, columnspan=2, pady=20)
+
+    send_button.grid(row=16, column=1, columnspan=2, pady=10)
 
 #Damesfiets placeholder
 ph_dames = (create_placeholder(root, "Damesfiets"))

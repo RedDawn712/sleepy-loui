@@ -1,10 +1,7 @@
 import re
 from tkinter import messagebox
-import ttkbootstrap
-from tkinter.ttk import *
-from Data import *
-from tkinter import *
 import tkinter as tk
+
 #Main window frame
 def create_widget(parent, widget_type, **options):
     return widget_type(parent, **options)
