@@ -1,7 +1,6 @@
 import unittest
 from unittest.mock import patch
 import tkinter as tk
-
 from Data import validate_zipcode, button_clicked, create_placeholder
 
 
